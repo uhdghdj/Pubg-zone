@@ -1,3 +1,4 @@
+
 /* PUBG ZONE — full storefront logic */
 const hasSupabaseConfig = Boolean(
   window.supabase &&
@@ -29,6 +30,10 @@ const translations = {
     categories: 'ألعاب المياه', categoriesSub: 'تفاصيل مصممة لجولات صيفية مليئة بالحماس',
     featured: 'القطعة الرئيسية', featuredSub: 'مدفع مياه دوّار بإضاءة LED وشحن USB', add: 'أضف للسلة', added: 'تمت الإضافة', details: 'التفاصيل',
     why: 'مصمم للحماس', whySub: 'تفاصيل عملية تجمع الحركة والإضاءة وتجربة لعب صيفية مختلفة.',
+    detailsKicker: '04 / GEL BLASTER DETAILS', detailsTitle: 'ما هو الجيل بلاستر؟ 🎯',
+    detailsIntro: 'الجيل بلاستر هي ألعاب ترفيهية بتصميم يحاكي شكل البنادق والمسدسات، وبتعمل باستخدام كرات جل مائية صغيرة بتتمدد بعد نقعها في الماء.',
+    gelBallsTitle: '💧 ما هي كرات الجيل (Gel Balls)؟', gelBallsText: 'هي حبيبات صغيرة جافة، عند وضعها في الماء بتمتص المياه وبتكبر في الحجم، وبتتحول لكرات جل طرية، وغالبًا بيكون مقاسها من 7 إلى 8 مم حسب نوع اللعبة.',
+    detailsOutro: '🔥 الجيل بلاستر عالم من المتعة والتجربة الواقعية، بخامات ومستويات مختلفة تناسب محبي ألعاب المحاكاة والترفيه.', detailsBrand: 'بابجي زون – عالم الجيل بلاستر في مكان واحد!',
     shipping: 'شحن سريع', shippingText: 'نوصل لبابك خلال 1–3 أيام عمل', quality: 'جودة مضمونة', qualityText: 'منتجات مختارة بعناية',
     support: 'دعم حقيقي', supportText: 'نحن هنا لمساعدتك طوال الوقت',
     reviews: 'آراء اللاعبين', reviewText: 'الخدمة سريعة والمنتج أحلى من الصور. أكيد هرجع أطلب تاني.',
@@ -66,6 +71,10 @@ const translations = {
     categories: 'Water toys', categoriesSub: 'Made for high-energy summer moments',
     featured: 'The headliner', featuredSub: 'Rotating water blaster with LED and USB charging', add: 'Add to cart', added: 'Added', details: 'View details',
     why: 'Built for the action', whySub: 'Practical details meet movement, light, and a different kind of summer play.',
+    detailsKicker: '04 / GEL BLASTER DETAILS', detailsTitle: 'What is a Gel Blaster? 🎯',
+    detailsIntro: 'Gel blasters are recreational toys designed to resemble rifles and pistols. They use small water gel balls that expand after being soaked in water.',
+    gelBallsTitle: '💧 What are Gel Balls?', gelBallsText: 'They are small dry beads that absorb water and grow when soaked, becoming soft gel balls. Their size is usually 7 to 8 mm, depending on the game type.',
+    detailsOutro: '🔥 Gel blasters offer a world of fun and a realistic play experience, with different materials and levels to suit simulation and recreation enthusiasts.', detailsBrand: 'PUBG ZONE — Your gel blaster world, all in one place!',
     shipping: 'Fast delivery', shippingText: 'At your door in 1–3 business days', quality: 'Verified quality', qualityText: 'Selected with care',
     support: 'Real support', supportText: 'We are here when you need us',
     reviews: 'Player reviews', reviewText: 'Fast service and the product is even better in person. I will order again.',
@@ -679,7 +688,7 @@ function manifesto() {
 }
 
 function review() {
-  return `<section class="spec-spotlight"><div class="spec-spotlight-heading"><span class="section-kicker">04 / PRODUCT FEATURES</span><h2>${state.lang === 'ar' ? 'تفاصيل اللعبة' : 'The details that hit different'}</h2></div><div class="spec-spotlight-grid"><article><b>01</b><strong>${state.lang === 'ar' ? 'سبطانتان دوّارتان' : 'Dual rotating barrels'}</strong><span>${state.lang === 'ar' ? 'حركة كهربائية بتصميم Gatling' : 'Electric motion in a Gatling-inspired design'}</span></article><article><b>02</b><strong>${state.lang === 'ar' ? 'مؤثر إضاءة LED' : 'Glowing LED effect'}</strong><span>${state.lang === 'ar' ? 'لمسة مضيئة أثناء اللعب' : 'A light-up effect while you play'}</span></article><article><b>03</b><strong>${state.lang === 'ar' ? 'شحن USB' : 'USB rechargeable'}</strong><span>${state.lang === 'ar' ? 'اشحنه واستعد للجولة التالية' : 'Recharge and get ready for another round'}</span></article><article><b>04</b><strong>${state.lang === 'ar' ? 'مدى يصل إلى 15 مترًا' : 'Up to 15 m range'}</strong><span>${state.lang === 'ar' ? 'مدى الإطلاق المذكور للمنتج' : 'Product shooting range as listed'}</span></article></div></section>`
+  return `<section class="spec-spotlight" aria-label="${t('detailsTitle')}"><div class="spec-spotlight-heading"><span class="section-kicker">${t('detailsKicker')}</span><h2>${t('detailsTitle')}</h2></div><div class="spec-spotlight-grid"><article><strong>${t('detailsIntro')}</strong></article><article><strong>${t('gelBallsTitle')}</strong><span>${t('gelBallsText')}</span></article><article><strong>${t('detailsOutro')}</strong></article><article><strong>${t('detailsBrand')}</strong></article></div></section>`
 }
 
 function newsletter() {
